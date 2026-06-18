@@ -3,28 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Codex работает</title>
+  <title>Текущая дата</title>
   <style>
     body {
       margin: 0;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      background: #ffffff;
       font-family: Arial, sans-serif;
     }
 
-    button {
-      padding: 12px 24px;
-      font: inherit;
-      cursor: pointer;
+    #current-date {
+      font-size: 48px;
     }
   </style>
 </head>
 <body>
-  <h1>Codex работает</h1>
-  <button type="button">Проверка</button>
+  <main id="current-date" aria-live="polite"></main>
+
+  <script>
+    const months = [
+      'января',
+      'февраля',
+      'марта',
+      'апреля',
+      'мая',
+      'июня',
+      'июля',
+      'августа',
+      'сентября',
+      'октября',
+      'ноября',
+      'декабря'
+    ];
+
+    const today = new Date();
+    const day = today.getDate();
+    const month = months[today.getMonth()];
+    const year = today.getFullYear();
+
+    document.getElementById('current-date').textContent = `Сегодня ${day} ${month} ${year}`;
+  </script>
 </body>
 </html>
